@@ -5,15 +5,9 @@
 </head>
 <body>
 	<?php
-		function sort_salary($a,$b){
-			if($a==$b) return 0;
-			return ($a<$b)?-1:1;
-			
-		}
-		
+	
 		$HighestSalary=0;
-		$LowestSalary=1000000;
-		$PositionsArray=[];	
+		$LowestSalary=1000000;		
 		$counterManager=0;
 		$counterDeveloper=0;
 		$counterMarketing=0;
