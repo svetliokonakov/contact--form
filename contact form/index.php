@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form action="form-submit.php" method="get">		
+	<form id="contact form">		
 		<div class="names">	
   			<label for="fname">First name:</label>
 
@@ -24,7 +24,7 @@
 
 			<input type="text" id="email" name="email"><br>
 
-  			<input type="submit" value="Submit">
+  			<button type="button" onclick="loadDoc()">Submit</button>
 		</div>
 
     	<div class="message">
@@ -32,7 +32,21 @@
 
   			<textarea id="message" name="message" rows=4 cols=50 placeholder="Write something here..."></textarea> 	  
    	 	</div>
-	</form>		
+	</form>
+
+	<script>
+		function loadDoc() {
+		  var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		      document.getElementById("contact form").innerHTML =
+		      this.responseText;
+		    }
+		  };
+		  xhttp.open("GET", "ajax_info.txt", true);
+		  xhttp.send();
+		}
+</script>
 
 </body>
 </html>
