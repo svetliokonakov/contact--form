@@ -2,51 +2,70 @@
 <head>
   <title>Contact Form</title>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script>
+  	$(document).ready(function(){
+  		$('#contact-form').on('submit', function (event) {
+  			event.preventDefault();
+  			var fname = $("#fname").val();
+  			var lname = $("#lname").val();
+  			var email = $("#email").val();
+  			var message = $("#message").val();  			
+  			$(".response").load("form-submit.php",{
+                fname: fname,
+                lname: lname,
+                email: email,
+                message:message
+                
+            });
+
+  		});
+  	});
+  </script>
 </head>
-<body>
+	<body>
+		<form action="form-submit.php" id="contact-form" method="POST">		
+			<div class="names">
+				<div class="row">
+					<label for="fname">First name:</label>
 
-	<form id="contact form">		
-		<div class="names">	
-  			<label for="fname">First name:</label>
+	  				<input type="text" id="fname" name="fname">
+				</div>	
 
-  			<input type="text" id="fname" name="fname">
+				<div class="row">
+					<label for="lname">Last name:</label>
 
-    		<label for="lname">Last name:</label>
+	  				<input type="text" id="lname" name="lname">
+				</div>				
+	  		</div>
 
-  			<input type="text" id="lname" name="lname"><br>
-  		</div>
+	  		<div class="row">
+	  			<div class="email>">
+					<label for="email">Email:</label>
 
-		<div class="email>">
-			<label for="email">Email:</label>
+					<input type="text" id="email" name="email"><br>
+	  			</div>
+			</div>
 
-			<input type="text" id="email" name="email"><br>
+			<div>
+				<div class="row">
+		    		<label for="message"></label>
 
-  			<button type="button" onclick="loadDoc()">Submit</button>
-		</div>
+		  			<textarea id="message" name="message" rows="4" cols="50"placeholder="Write something here..."></textarea> 	  
+	   	 		</div>
+			</div>
 
-    	<div class="message">
-    		<label for="message"></label>
+	    	<div class="row">
+	    		<button id="button">Submit</button>
+	    	</div>
+	    	<div class="response">
+	    		<p></p>
+	    	</div>
+	    	
 
-  			<textarea id="message" name="message" rows=4 cols=50 placeholder="Write something here..."></textarea> 	  
-   	 	</div>
-	</form>
-
-	<script>
-		function loadDoc() {
-		  var xhttp = new XMLHttpRequest();
-		  xhttp.onreadystatechange = function() {
-		    if (this.readyState == 4 && this.status == 200) {
-		      document.getElementById("contact form").innerHTML =
-		      this.responseText;
-		    }
-		  };
-		  xhttp.open("GET", "ajax_info.txt", true);
-		  xhttp.send();
-		}
-</script>
-
-</body>
+	
+	</body>
 </html>

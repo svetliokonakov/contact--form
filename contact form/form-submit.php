@@ -1,18 +1,36 @@
-<?php error_reporting(-1);?>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	Welcome <?php echo $_GET['fname'] . $_GET['lname']; ?><br>
-	Your email adress is: <?php echo $_GET["email"]; ?>
+<?php		
+		if ($_SERVER["REQUEST_METHOD"] == "POST"){
+			$fname = $_POST['fname'];
+			$lname = $_POST['lname'];
+			$email = $_POST['email'];
+			$message = $_POST['message'];
 
-	<?php			
-		$csvFile = "myCSV.csv";
-		$fh = fopen($csvFile, 'a',) or die("can't open file");
-		$stringData = $_GET['fname'] .','. $_GET['lname']. ',' .$_GET['email'];
-		fwrite($fh, $stringData);
-		fclose($csvFile);
-	?>
-</body>
-</html>
+			$errorEmpty = false;
+
+			$errorEmail = false;
+			
+
+			if(empty($fname)||empty($lname)||empty($email)){		
+   				echo "<span class='form-error'> Fill in all fields!</span>";		 
+				$errorEmpty = true;								
+			}
+
+			else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+				echo "<span class='form-error'> Write a valid email!</span>";
+				$errorEmail = true;
+
+			}
+
+			else{
+				echo "<span class='form-success'> Email sent!</span>";
+			}
+		}
+
+		else{
+			echo "<span class='form-error'> There was an error!</span>";
+		}
+
+?>
+
+	
+
