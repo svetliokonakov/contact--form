@@ -27,8 +27,10 @@
   </script>
 </head>
 	<body>
-		<form action="form-submit.php" id="contact-form" method="POST">		
-			<div class="names">
+		<form action="form-submit.php" id="contact-form" method="POST">	
+			<h1>Sign up!</h1>	
+
+			<div class="names">				
 				<div class="row">
 					<label for="fname">First name:</label>
 
@@ -58,7 +60,7 @@
 	   	 		</div>
 			</div>
 
-	    	<div class="row">
+	    	<div id="button-row">
 	    		<button id="button">Submit</button>
 	    	</div>
 	    	<div class="response">

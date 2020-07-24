@@ -1,44 +1,92 @@
 body{
-	background-color: rgb(250, 235, 215);
-	font-family: Roboto;
+	margin:0;
+	padding:0;
+	background: url(background.jpg);	
+	
+
+}
+h1{
+	border-bottom: solid;
+	width: 10%
+	height: 10px;
+	border-color: black;
+}
+#contact-form{	
+	width: 25%;
+	align-content: center;
+	float: center;
+	margin: 50px 35%;
+	padding-top: 25px;	
+	text-align: center;
+	padding: 3%;
+	font-family: "Montserrat", sans-serif;
 	font-size: 18px;
+	box-shadow: 2px;	
+
 }
-.row{	
-	padding-bottom: 10px;
-	display: inline-block;
-	margin-right: 10px;
-}
-#contact-form{
-	background-color: rgb(173, 216, 230);
+.row{
+	display: block;
 	border-style: solid;
 	border-width: 2px;
-  	border-color: black;  	
-  	padding:5px;  	
-  	margin: 50px 30%;
-
-
+	border-radius: 8px;
+	margin-bottom: 10px;
+	
 }
-#button{
-	transition-duration: 1s;
-	cursor: pointer;
-}
-#button:hover{
-	transition-duration: 0.4s;
-	border-radius: 2px;
-	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-	color: rgb(0, 100, 0);
-}
-input{
+.row label{
 	display: block;
-	border-radius: 2px;
+	margin: 10px;
+	text-align: left;
+
+}
+.row input{
 	width: 100%;
+	padding: 5px;
+	background: none;
+	border: none;
+	outline: none;
+	font-size: 18px;
+	display: inline-block;
+}
+.row textarea{
+	font-family: "Montserrat", sans-serif;
+	font-size: 18px;
+	resize:none;
+	width: 100%;	
+	outline: none;
+	background: none;
+	border:none;
+}
+#button-row button{
+	border: solid;
+	border-width: 2px;
+	border-radius: 8px;
+	width: 80px;
+	height: 100%;
+}
+#button-row{
+	height: 50px;
+	border: none;
+	background- color: black;
+}
+.response{
+	margin-top: 10px;
 }
 
-.form-error{color: red;}
-.form-success{color: green;}
-.input-error{box-shadow: 0 0 5px red;}
+.row:hover{
+	box-shadow: 0 0 10px #FF8C00;
+}
+#button-row button:hover{
+	cursor: pointer;
+	background-color: #DCDCDC;
+	transition-duration: 0.5s;
 
 
-
+}
+.form-success{
+	color: green;
+}
+.form-error{
+	color: red;
+}
 
 
